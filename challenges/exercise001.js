@@ -1,6 +1,9 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  
+// RegEX Replace - replace(/RegEx/g, letter)
+// Where RegEx [^:FirstChar, \w{1}:FirstCharOfWord, | : Or, \s+:AnySpace]
+  return word.replace(/^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
 }
 
 function generateInitials(firstName, lastName) {
