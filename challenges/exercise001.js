@@ -1,15 +1,17 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
   
-// RegEX Replace - replace(/RegEx/g, letter)
-// Where RegEx [^:FirstChar, \w{1}:FirstCharOfWord, | : Or, \s+:AnySpace]
-  return word.replace(/^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
+// RegEX - replace(/RegEX/g, letter => letter.<operation>())
+// RegEX => [^\w{1}:FirstCharOfFirstWord]
+  return word.replace(/^\w{1}/g, letter => letter.toUpperCase());
 }
 
 function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
   // Add your code here!
+
+
 }
 
 function addVAT(originalPrice, vatRate) {
