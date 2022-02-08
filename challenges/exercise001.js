@@ -24,7 +24,13 @@ function addVAT(originalPrice, vatRate) {
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
+  
+  // Option1 : ReCalc
+  //const dp = Math.pow(10,2);
+  //return Math.round((originalPrice * (1-(reduction/100))) * dp) / dp; 
+
+  // Option 2 : Reuse addVAT ( & its validation) 
+  return addVAT(originalPrice,-reduction);
 }
 
 function getMiddleCharacter(str) {
