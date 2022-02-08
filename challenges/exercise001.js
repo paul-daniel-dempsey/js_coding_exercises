@@ -63,7 +63,16 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  
+  // Scruffy!
+  // for(let i=0;i<words.length;i++) {
+  //     words[i] = reverseWord(words[i]);
+  // }
+
+  // Neater? However, why MUST return on seperate line below?
+  words.forEach((word,index) => words[index] = reverseWord(word));
+
+  return words;
 }
 
 function countLinuxUsers(users) {
