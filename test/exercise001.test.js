@@ -12,19 +12,19 @@ const {
 } = require("../challenges/exercise001");
 
 describe("capitalize", () => {
-  test.only("returns a capitalized string", () => {
+  test("returns a capitalized string", () => {
     expect(capitalize("hello")).toBe("Hello");
     expect(capitalize("the quick fox")).toBe("The quick fox");
     expect(capitalize("oh no, bears!!!")).toBe("Oh no, bears!!!");
   });
 
-  test.only("does nothing if the string is already capitalized", () => {
+  test("does nothing if the string is already capitalized", () => {
     expect(capitalize("Hello")).toBe("Hello");
   });
 });
 
 describe("generateInitials", () => {
-  test("returns the initials of a firstname and surname", () => {
+  test.only("returns the initials of a firstname and surname", () => {
     expect(generateInitials("Frederic", "Bonneville")).toBe("F.B");
   });
 });
