@@ -35,7 +35,25 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+
+  // FIRST ATTEMPT
+  // let start = 0;
+  // let stop = 0;
+  // if ((str.length % 2) === 0) {
+  //   // even
+  //   start = Math.floor((str.length)/2) - 1
+  //   stop = start + 2
+  // }
+  // else {
+  //   // odd
+  //   start = Math.floor((str.length)/2)
+  //   stop = start + 1    
+  // }
+
+  // SECOND CLEANUP
+  let start = Math.floor((str.length)/2) + (((str.length % 2) === 0)?-1:0);
+  let stop = start + (((str.length % 2) === 0)?2:1);
+  return str.substring(start,stop);
 }
 
 function reverseWord(word) {
