@@ -25,7 +25,26 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
+  
+  // FOR
+  // let beginnames = [];
+  // for (let i=0;i < names.length;i++) {
+  //     if (names[i].substring(0,char.length) === char) {
+  //       beginnames.push(names[i]);
+  //     }
+  // }
+  // return beginnames;
+
+  // FOR EACH
+  // let beginnames = [];
+  // names.forEach((name) => (name.substring(0,char.length) === char) ? beginnames.push(name) : 0 );
+  // return beginnames;
+
+  // FILTER
+  return names.filter(name => name.substring(0,char.length) === char);
+
+  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+  //return names.map(name => name.substring(0,char.length) === char);
 }
 
 function findVerbs(words) {
