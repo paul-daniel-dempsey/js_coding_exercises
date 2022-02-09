@@ -7,7 +7,7 @@ const {
 } = require("../challenges/exercise002");
 
 describe("getFillings", () => {
-  test.only("returns the fillings of a sandwich", () => {
+  test("returns the fillings of a sandwich", () => {
     const sandwich = {
       bread: "Sourdough",
       fillings: ["brie", "relish", "lettuce"],
@@ -25,7 +25,7 @@ describe("getFillings", () => {
 });
 
 describe("isFromManchester", () => {
-  test("returns true if the person is from Manchester", () => {
+  test.only("returns true if the person is from Manchester", () => {
     const person = {
       name: "Mohammed",
       city: "Manchester",
@@ -34,7 +34,7 @@ describe("isFromManchester", () => {
     expect(isFromManchester(person)).toBe(true);
   });
 
-  test("returns false if the person is not Manchester", () => {
+  test.only("returns false if the person is not Manchester", () => {
     const person = {
       name: "Anisa",
       city: "Leeds",
