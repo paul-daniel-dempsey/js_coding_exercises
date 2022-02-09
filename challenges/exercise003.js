@@ -3,7 +3,7 @@ const { capitalize } = require("./exercise001");
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  // Question -> why MUST return on seperate line below?
+  // Question -> why MUST return forEach on seperate line below?
   words.forEach((word,index) => { words[index] = (index !== 0) ? capitalize(word): word });
   return words.join("");
 }
@@ -11,14 +11,19 @@ function camelCaseWords(words) {
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
 
-  // Question -> why MUST return on seperate line below?
+  // Question -> why MUST return forEach on seperate line below?
   nums.forEach((num,index) => nums[index] = (num * num));
   return nums;
 }
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+
+  // Question -> why CANT 'let/var total' inside forEach?
+  // Question -> why MUST return forEach on seperate line below?
+  let total = 0;
+  people.forEach((person) => total += person.subjects.length);
+  return total;
 }
 
 function checkIngredients(menu, ingredient) {

@@ -7,15 +7,15 @@ const {
 } = require("../challenges/exercise003");
 
 describe("camelCaseWords", () => {
-  test.only("camel cases a single word (i.e. no capital letter at beginning)", () => {
+  test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
 
-  test.only("camel cases two words (i.e. second word is capitalized)", () => {
+  test("camel cases two words (i.e. second word is capitalized)", () => {
     expect(camelCaseWords(["my", "variable"])).toBe("myVariable");
   });
 
-  test.only("camel cases two+ words (i.e. all words after 1st are capitalized)", () => {
+  test("camel cases two+ words (i.e. all words after 1st are capitalized)", () => {
     expect(camelCaseWords(["my", "variable"])).toBe("myVariable");
     expect(camelCaseWords(["my", "variable", "name"])).toBe("myVariableName");
     expect(camelCaseWords(["is", "unique"])).toBe("isUnique");
@@ -26,11 +26,11 @@ describe("camelCaseWords", () => {
 });
 
 describe("getSquares", () => {
-  test.only("returns an empty array if empty array passed", () => {
+  test("returns an empty array if empty array passed", () => {
     expect(getSquares([])).toEqual([]);
   });
 
-  test.only("returns an array of squares of the original numbers", () => {
+  test("returns an array of squares of the original numbers", () => {
     expect(getSquares([2, 4, 6])).toEqual([4, 16, 36]);
     expect(getSquares([2, 4, 6, 1])).toEqual([4, 16, 36, 1]);
     expect(getSquares([2, 3, 6, 7, 12, 4])).toEqual([4, 9, 36, 49, 144, 16]);
@@ -45,7 +45,7 @@ describe("getSquares", () => {
 });
 
 describe("getTotalSubjects", () => {
-  test("returns 0 if no people have subjects", () => {
+  test.only("returns 0 if no people have subjects", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: [] },
@@ -54,7 +54,7 @@ describe("getTotalSubjects", () => {
     expect(getTotalSubjects(people)).toBe(0);
   });
 
-  test("returns 1 if 1 person has a subject", () => {
+  test.only("returns 1 if 1 person has a subject", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: ["chemistry"] },
@@ -63,7 +63,7 @@ describe("getTotalSubjects", () => {
     expect(getTotalSubjects(people)).toBe(1);
   });
 
-  test("returns the correct number of subjects studied in total for all people", () => {
+  test.only("returns the correct number of subjects studied in total for all people", () => {
     const people = [
       { name: "Billy", subjects: ["welsh", "spanish"] },
       { name: "Claude", subjects: ["chemistry", "biology", "music"] },
