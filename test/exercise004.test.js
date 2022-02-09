@@ -59,7 +59,7 @@ describe("findVerbs", () => {
 });
 
 describe("getIntegers", () => {
-  test.only("returns an array containing only integers", () => {
+  test("returns an array containing only integers", () => {
     const nums = [1, 3.5, 2.1, 1, 4, 9];
     expect(getIntegers(nums)).toEqual([1, 1, 4, 9]);
     expect(getIntegers([])).toEqual([]);
@@ -68,7 +68,7 @@ describe("getIntegers", () => {
 });
 
 describe("getCities", () => {
-  test("returns an array of the cities of each user", () => {
+  test.only("returns an array of the cities of each user", () => {
     const users = [
       {
         id: 12,

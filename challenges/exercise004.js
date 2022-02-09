@@ -78,7 +78,24 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+ 
+  // FOR
+  // let displays = [];
+  // for (let i=0;i < users.length;i++) {
+  //   displays.push(users[i].data.city.displayName);
+  // }
+  // return displays;
+
+  // FOR EACH
+  // let displays = [];
+  // users.forEach((user) => displays.push(user.data.city.displayName));
+  // return displays;
+
+  // MAP
+  return users.map(user => { return user.data.city.displayName});
+
+  // FILTER : CANNOT CREATE ARRAY OF SUBITEMS
+  //return users.filter(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
