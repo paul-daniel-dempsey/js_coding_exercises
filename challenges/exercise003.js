@@ -4,13 +4,16 @@ function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
 
   // Question -> why MUST return on seperate line below?
-  words.forEach((word,index) => {(index !== 0) ? words[index] = capitalize(word):word});
+  words.forEach((word,index) => { words[index] = (index !== 0) ? capitalize(word): word });
   return words.join("");
 }
 
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+
+  // Question -> why MUST return on seperate line below?
+  nums.forEach((num,index) => nums[index] = (num * num));
+  return nums;
 }
 
 function getTotalSubjects(people) {
