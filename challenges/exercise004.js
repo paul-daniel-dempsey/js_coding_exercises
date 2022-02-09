@@ -44,7 +44,7 @@ function findNamesBeginningWith(names, char) {
   return names.filter(name => name.substring(0,char.length) === char);
 
   // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
-  //return names.map(name => name.substring(0,char.length) === char);
+  //return names.map(name => name.substring(0,char.length) === char ? name : undefined);
 }
 
 function findVerbs(words) {
@@ -54,7 +54,26 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  
+  // FOR
+  // let numints = [];
+  // for (let i=0;i < nums.length;i++) {
+  //     if (nums[i] % 1 === 0) {
+  //       numints.push(nums[i]);
+  //     }
+  // }
+  // return numints;
+
+  // FOR EACH
+  // let numints = [];
+  // nums.forEach((num) => (num % 1 === 0) ? numints.push(num) : 0 );
+  // return numints;
+
+  // FILTER
+  return nums.filter(num => num % 1 === 0);
+
+  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+  //return nums.map(num => num % 1 === 0 ? num : undefined);
 }
 
 function getCities(users) {
