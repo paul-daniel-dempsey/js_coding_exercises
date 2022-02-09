@@ -123,7 +123,26 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+   
+  // FOR
+  // let contains = [];
+  // for (let i=0;i < sentences.length;i++) {
+  //     if (sentences[i].toLowerCase().indexOf(str.toLowerCase()) >= 0) {
+  //       contains.push(sentences[i]);
+  //     }
+  // }
+  // return contains;
+
+  // FOR EACH
+  // let contains = [];
+  // sentences.forEach((sentence) => (sentence.toLowerCase().indexOf(str.toLowerCase()) >= 0) ? contains.push(sentence) : 0 );
+  // return contains;
+
+  // FILTER
+  return sentences.filter(sentence => sentence.toLowerCase().indexOf(str.toLowerCase()) >= 0);
+
+  // MAP : CANNOT REMOVE FROM MAP?
+  //return sentences.map(sentence => sentence.toLowerCase().indexOf(str.toLowerCase()) >= 0 ? sentence : undefined);
 }
 
 function getLongestSides(triangles) {
