@@ -18,7 +18,7 @@ function findSmallNums(nums) {
   // FILTER
   return nums.filter(num => num < 1);
 
-  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+  // MAP : CANNOT REMOVE FROM MAP?
  // return nums.map(num => num < 1 ? num : undefined );
 }
 
@@ -43,7 +43,7 @@ function findNamesBeginningWith(names, char) {
   // FILTER
   return names.filter(name => name.substring(0,char.length) === char);
 
-  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+  // MAP : CANNOT REMOVE FROM MAP?
   //return names.map(name => name.substring(0,char.length) === char ? name : undefined);
 }
 
@@ -72,7 +72,7 @@ function getIntegers(nums) {
   // FILTER
   return nums.filter(num => num % 1 === 0);
 
-  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+  // MAP : CANNOT REMOVE FROM MAP?
   //return nums.map(num => num % 1 === 0 ? num : undefined);
 }
 
@@ -94,13 +94,30 @@ function getCities(users) {
   // MAP
   return users.map(user => { return user.data.city.displayName});
 
-  // FILTER : CANNOT CREATE ARRAY OF SUBITEMS
+  // FILTER : CANNOT CREATE ARRAY OF SUBITEMS?
   //return users.filter(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+ 
+  // FOR
+  // let sqrroots = [];
+  // for (let i=0;i < nums.length;i++) {
+  //   sqrroots.push(Math.round((Math.sqrt(nums[i])) * Math.pow(10,2)) / Math.pow(10,2));
+  // }
+  // return sqrroots;
+
+  // FOR EACH
+  // let sqrroots = [];
+  // nums.forEach((num) => sqrroots.push(Math.round((Math.sqrt(num)) * Math.pow(10,2)) / Math.pow(10,2)));
+  // return sqrroots;
+
+  // MAP
+  return nums.map(num => { return Math.round((Math.sqrt(num)) * Math.pow(10,2)) / Math.pow(10,2)});
+
+  // FILTER : CANNOT CREATE ARRAY OF MODIFIED ITEMS?
+  //return nums.filter(num => Math.round((Math.sqrt(num)) * Math.pow(10,2)) / Math.pow(10,2));
 }
 
 function findSentencesContaining(sentences, str) {
