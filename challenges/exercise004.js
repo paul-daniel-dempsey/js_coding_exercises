@@ -49,7 +49,7 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  return findNamesBeginningWith(words, "to ");
 }
 
 function getIntegers(nums) {
