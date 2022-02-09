@@ -1,6 +1,25 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
+  
+  // FOR
+  // let smallnums = [];
+  // for (let i=0;i < nums.length;i++) {
+  //     if (nums[i] < 1) {
+  //       smallnums.push(nums[i]);
+  //     }
+  // }
+  // return smallnums;
+
+  // FOR EACH
+  // let smallnums = [];
+  // nums.forEach((num) => (num < 1) ? smallnums.push(num) : 0 );
+  // return smallnums;
+
+  // FILTER
   return nums.filter(num => num < 1);
+
+  // MAP : CANNOT REMOVE FROM MAP : NOT POSSIBLE
+ // return nums.map(num => num < 1 ? num : undefined );
 }
 
 function findNamesBeginningWith(names, char) {
