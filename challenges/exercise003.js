@@ -51,7 +51,21 @@ function checkIngredients(menu, ingredientfind) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+
+  // v1 : Filter Unique (Value,Index,Array) and Sort Ascending, reduces ForEach Loop Find
+  //let arr1unique = arr1.filter((v, i, a) => a.indexOf(v) === i).sort((a,b) => a - b);
+  //let arr2unique = arr2.filter((v, i, a) => a.indexOf(v) === i).sort((a,b) => a - b);
+  //let foundNumbers = [];
+  // arr1unique.forEach(arr1item => {
+  //   arr2unique.forEach(arr2item => {
+  //             (arr1item === arr2item) ? foundNumbers.push(arr1item): 0});});
+  // return foundNumbers;
+
+  // v2 : Filter Unique (Value,Index,Array) then Filter then Sort
+  // Question -> Will preSort speedup filter?
+  let arr1unique = arr1.filter((v, i, a) => a.indexOf(v) === i);
+  let arr2unique = arr2.filter((v, i, a) => a.indexOf(v) === i);
+  return arr1unique.filter(num => arr2unique.includes(num)).sort((a,b) => a - b);
 }
 
 module.exports = {
