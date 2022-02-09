@@ -132,7 +132,7 @@ describe("findSentencesContaining", () => {
     "The bugs field should hold the url to your project’s issue tracker and / or the email address to which issues should be reported."
   ];
 
-  test.only("returns only the sentences containing the specified string", () => {
+  test("returns only the sentences containing the specified string", () => {
     expect(
       findSentencesContaining(sentencesAboutPackageJson, "license")
     ).toEqual([
@@ -144,7 +144,7 @@ describe("findSentencesContaining", () => {
     ).toEqual([]);
   });
 
-  test.only("it should not be case sensitive", () => {
+  test("it should not be case sensitive", () => {
     expect(
       findSentencesContaining(sentencesAboutPackageJson, "dependencies")
     ).toEqual([
@@ -155,7 +155,7 @@ describe("findSentencesContaining", () => {
 });
 
 describe("getLongestSides", () => {
-  test("returns the longest side of each set of triangle data", () => {
+  test.only("returns the longest side of each set of triangle data", () => {
     const data = [[6, 7, 10], [9, 3, 6], [6, 3, 5], [6, 13, 12], [7, 12, 8]];
     expect(getLongestSides(data)).toEqual([10, 9, 6, 13, 12]);
 

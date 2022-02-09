@@ -147,7 +147,24 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+   
+  // FOR
+  // let contains = [];
+  // for (let i=0;i < triangles.length;i++) {
+  //   contains.push( triangles[i].reduce((a, b) => a >= b ? a : b) );
+  // }
+  // return contains;
+
+  // FOR EACH
+  // let contains = [];
+  // triangles.forEach((triangle) => contains.push( triangle.reduce((a, b) => a >= b ? a : b) ));
+  // return contains;
+
+  // MAP
+  return triangles.map(triangle => triangle.reduce((a, b) => a >= b ? a : b) );
+
+  // FILTER : CANNOT CREATE ARRAY OF REDUCED ITEMS?
+  //return triangles.filter(triangle => triangle.reduce((a, b) => a >= b ? a : b) );
 }
 
 module.exports = {
