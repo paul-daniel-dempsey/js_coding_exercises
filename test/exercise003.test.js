@@ -134,7 +134,7 @@ describe("checkIngredients", () => {
 });
 
 describe("duplicateNumbers", () => {
-  test.only("returns an array of numbers which appear in both arr1 and arr2", () => {
+  test("returns an array of numbers which appear in both arr1 and arr2", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0];
     expect(duplicateNumbers(arr1, arr2)).toEqual([55]);
@@ -144,7 +144,7 @@ describe("duplicateNumbers", () => {
     expect(duplicateNumbers(arr1, arr2)).toEqual([1]);
   });
 
-  test.only("returns the duplicate numbers in ascending order", () => {
+  test("returns the duplicate numbers in ascending order", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0, 1];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 55]);
@@ -154,7 +154,7 @@ describe("duplicateNumbers", () => {
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 2, 3, 7]);
   });
 
-  test.only("returns each number only once, even if it appears in one array multiple times", () => {
+  test("returns each number only once, even if it appears in one array multiple times", () => {
     let arr1 = [1, 2, 2, 2, 3, 4, 5];
     let arr2 = [1, 2, 6, 7];
     expect(duplicateNumbers(arr1, arr2)).toEqual([1, 2]);

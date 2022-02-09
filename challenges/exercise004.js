@@ -1,6 +1,6 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  return nums.filter(num => num < 1);
 }
 
 function findNamesBeginningWith(names, char) {
