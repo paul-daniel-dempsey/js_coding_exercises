@@ -19,7 +19,7 @@ function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
 
   // SetUp Empty
-  let toFind = "sheep"
+  const toFind = "sheep"
   let group = [];
   group[toFind] = 0;
 
@@ -32,7 +32,21 @@ function countSheep(arr) {
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
-  // Your code here!
+  
+  const cityfind = "Manchester";
+  const postcodestart = "M";
+  
+  // First Attempt
+  // if (person.address.postCode.substring(0,postcodestart.length).toUpperCase() === postcodestart) {
+  //   if (person.address.city === cityfind) {
+  //     return true;
+  //   }
+  // }
+  // return false;
+  
+  // RollUp
+  return ((person.address.postCode.substring(0,postcodestart.length).toUpperCase() === postcodestart) 
+          && (person.address.city === cityfind));
 }
 
 module.exports = {

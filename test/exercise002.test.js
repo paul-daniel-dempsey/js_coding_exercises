@@ -74,22 +74,22 @@ describe("getBusNumbers", () => {
 });
 
 describe("countSheep", () => {
-  test.only("returns 0 if there are 0 sheep in the array", () => {
+  test("returns 0 if there are 0 sheep in the array", () => {
     const arr = ["dog", "badger", "dog", "dog", "chicken"];
     expect(countSheep(arr)).toBe(0);
   });
 
-  test.only("returns 1 if there is 1 sheep in the array", () => {
+  test("returns 1 if there is 1 sheep in the array", () => {
     const arr = ["dog", "sheep", "dog", "dog", "chicken"];
     expect(countSheep(arr)).toBe(1);
   });
 
-  test.only("returns 2 if there are 2 sheep in the array", () => {
+  test("returns 2 if there are 2 sheep in the array", () => {
     const arr = ["dog", "sheep", "dog", "sheep", "chicken"];
     expect(countSheep(arr)).toBe(2);
   });
 
-  test.only("returns 5 if there are 5 sheep in the array", () => {
+  test("returns 5 if there are 5 sheep in the array", () => {
     const arr = [
       "dog",
       "sheep",
@@ -106,7 +106,7 @@ describe("countSheep", () => {
 });
 
 describe("hasMPostCode", () => {
-  test("returns true if the person has a postcode starting with M", () => {
+  test.only("returns true if the person has a postcode starting with M", () => {
     const person = {
       name: "Mohammed",
       age: 23,
@@ -119,7 +119,7 @@ describe("hasMPostCode", () => {
     expect(hasMPostCode(person)).toBe(true);
   });
 
-  test("returns false if the person does not have a postcode starting with M", () => {
+  test.only("returns false if the person does not have a postcode starting with M", () => {
     const person = {
       name: "Anisa",
       age: 39,
@@ -132,7 +132,7 @@ describe("hasMPostCode", () => {
     expect(hasMPostCode(person)).toBe(false);
   });
 
-  test("returns false if the postcode starts with M but is not for Manchester", () => {
+  test.only("returns false if the postcode starts with M but is not for Manchester", () => {
     const person = {
       name: "Jahin",
       age: 55,
