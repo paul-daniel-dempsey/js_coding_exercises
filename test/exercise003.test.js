@@ -45,7 +45,7 @@ describe("getSquares", () => {
 });
 
 describe("getTotalSubjects", () => {
-  test.only("returns 0 if no people have subjects", () => {
+  test("returns 0 if no people have subjects", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: [] },
@@ -54,7 +54,7 @@ describe("getTotalSubjects", () => {
     expect(getTotalSubjects(people)).toBe(0);
   });
 
-  test.only("returns 1 if 1 person has a subject", () => {
+  test("returns 1 if 1 person has a subject", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: ["chemistry"] },
@@ -63,7 +63,7 @@ describe("getTotalSubjects", () => {
     expect(getTotalSubjects(people)).toBe(1);
   });
 
-  test.only("returns the correct number of subjects studied in total for all people", () => {
+  test("returns the correct number of subjects studied in total for all people", () => {
     const people = [
       { name: "Billy", subjects: ["welsh", "spanish"] },
       { name: "Claude", subjects: ["chemistry", "biology", "music"] },
@@ -74,7 +74,7 @@ describe("getTotalSubjects", () => {
 });
 
 describe("checkIngredients", () => {
-  test("returns false if no menu items include the specified ingredient", () => {
+  test.only("returns false if no menu items include the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",
@@ -103,7 +103,7 @@ describe("checkIngredients", () => {
     expect(checkIngredients(menu, "milk")).toBe(false);
   });
 
-  test("returns true if a menu item includes the specified ingredient", () => {
+  test.only("returns true if a menu item includes the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",

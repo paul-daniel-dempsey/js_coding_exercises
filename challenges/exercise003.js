@@ -26,10 +26,26 @@ function getTotalSubjects(people) {
   return total;
 }
 
-function checkIngredients(menu, ingredient) {
+function checkIngredients(menu, ingredientfind) {
   if (menu === undefined) throw new Error("menu is required");
-  if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  if (!ingredientfind) throw new Error("ingredient is required");
+
+  // V1 - Slower, ForEach neater?
+  // let found = false;
+  // menu.forEach((dish) => {
+  //           dish.ingredients.forEach((ingredient) => {
+  //             (ingredient === ingredientfind) ? found = true: 0});});
+  // return found;
+
+  // v2 - Quicker, For returns before loops finish when item found
+  for (let i=0;i < menu.length;i++) {
+    for (let j=0; j < menu[i].ingredients.length;j++) {
+      if (menu[i].ingredients[j] === ingredientfind) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function duplicateNumbers(arr1, arr2) {
