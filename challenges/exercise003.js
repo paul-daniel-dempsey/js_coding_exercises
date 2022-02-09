@@ -1,10 +1,15 @@
-function getSquares(nums) {
-  if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
-}
+const { capitalize } = require("./exercise001");
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
+
+  // Question -> why MUST return on seperate line below?
+  words.forEach((word,index) => {(index !== 0) ? words[index] = capitalize(word):word});
+  return words.join("");
+}
+
+function getSquares(nums) {
+  if (nums === undefined) throw new Error("nums is required");
   // Your code here!
 }
 
