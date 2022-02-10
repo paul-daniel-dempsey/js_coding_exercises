@@ -1,12 +1,30 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+
+  // v1, Clunky!
+  // let found = null;
+  // for(let i=0;i<nums.length-1;i++) {
+  //   if (nums[i] === n) {
+  //     found = i + 1;
+  //     break;
+  //   }
+  // }
+  // return ((found === null) ? null : nums[found]);
+
+  // v2 IndexOf
+  // let pos = nums.indexOf(n);
+  // return (((pos === -1) || (pos === nums.length-1)) ? null : nums[pos+1] );
+
+  // v3 FindIndex + ARROW Function
+  let index = nums.findIndex(element => element === n);
+  return (((index === -1) || (index === nums.length-1)) ? null : nums[index+1] ); 
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+  
 };
 
 const reverseNumber = n => {
