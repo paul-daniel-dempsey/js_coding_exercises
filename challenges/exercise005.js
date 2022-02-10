@@ -47,13 +47,27 @@ const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required"); // ? How do I add 'THROW NEW' to implicit return?
   return arrs.reduce((lhs, rhs_item) => lhs + rhs_item.reduce((lhs, rhs_item) => lhs + rhs_item, 0), 0);
 };
-
-const sumArrays_implicit = arrs => arrs.reduce((lhs, rhs_item) => lhs + rhs_item.reduce((lhs, rhs_item) => lhs + rhs_item, 0), 0);
+const sumArrays_implicitreturn = arrs => arrs.reduce((lhs, rhs_item) => lhs + rhs_item.reduce((lhs, rhs_item) => lhs + rhs_item, 0), 0);
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required"); // ? How do I add 'THROW NEW' to implicit return?
-  // Your code here!
+
+  // v1
+  // let last = arr.pop();
+  // let first = arr.shift();
+  // arr.unshift(last);
+  // arr.push(first);
+  // return arr;
+
+  // v2 - Create array with end items swapped, everything same in middle
+  if (arr.length > 0) { [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]]; }
+  return arr;
+
+  // v3 - LastItem + ConcatSlice + Concat FirstItem NOT WORKING FOR ARR[] ?? COME BACK TO ??
+  // return (arr.length > 0) ? [arr[arr.length-1]].concat(arr.slice(1, arr.length-1)).concat([arr[0]]): arr;
 };
+const arrShift_implicitreturn = arr => (arr.length > 0) ? [arr[arr.length-1]].concat(arr.slice(1, arr.length-1)).concat([arr[0]]): arr;
+
 
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required"); // ? How do I add 'THROW NEW' to implicit return?
