@@ -29,7 +29,7 @@ describe("findNextNumber", () => {
 });
 
 describe("count1sand0s", () => {
-  test.only("returns an object with the count of 1s and 0s in a string", () => {
+  test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
       0: 3
@@ -53,7 +53,7 @@ describe("count1sand0s", () => {
 });
 
 describe("reverseNumber", () => {
-  test("reverses the digits of a number", () => {
+  test.only("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
     expect(reverseNumber(12345)).toBe(54321);
