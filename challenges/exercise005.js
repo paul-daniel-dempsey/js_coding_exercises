@@ -45,8 +45,10 @@ const reverseNumber_implicitreturn = n => parseInt(n.toString().split("").revers
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required"); // ? How do I add 'THROW NEW' to implicit return?
-  // Your code here!
+  return arrs.reduce((lhs, rhs_item) => lhs + rhs_item.reduce((lhs, rhs_item) => lhs + rhs_item, 0), 0);
 };
+
+const sumArrays_implicit = arrs => arrs.reduce((lhs, rhs_item) => lhs + rhs_item.reduce((lhs, rhs_item) => lhs + rhs_item, 0), 0);
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required"); // ? How do I add 'THROW NEW' to implicit return?
