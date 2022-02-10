@@ -23,8 +23,17 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
-  
+
+  // v1 - Grouping Object
+  // let binarynums = str.split("");
+  // let group = {"0" : 0}; // !HARD CODE DEFAULT! //
+  // for(let i=0;i < binarynums.length; i++) { 
+  //   group[binarynums[i]] = group[binarynums[i]] ? group[binarynums[i]] + 1 : 1; }
+  // return group;
+
+  // v2 - Reduce (with hc default)
+  let binarynums = str.split("");
+  return binarynums.reduce((binarynums, num) => { binarynums[num] = binarynums[num] ? binarynums[num] + 1 : 1; return binarynums;}, {"0" : 0});   
 };
 
 const reverseNumber = n => {
