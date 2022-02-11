@@ -78,7 +78,7 @@ describe("createMatrix", () => {
 
 
 describe("areWeCovered", () => {
-    test.only("return true when there > 3 staff for days", () => {         
+    test("return true when there > 3 staff for days", () => {         
         expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
                              { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
                              { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
@@ -105,7 +105,7 @@ describe("areWeCovered", () => {
         //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Saturday")).toBe(true);
     });
 
-    test.only("return false when there < 3 staff for days", () => {         
+    test("return false when there < 3 staff for days", () => {         
         expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
                              { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
                              { name: "John", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
@@ -120,7 +120,7 @@ describe("areWeCovered", () => {
                              { name: "Ian", rota: [] }],"Sunday")).toBe(false);
     });
 
-    test.only("return false when rota empty", () => {         
+    test("return false when rota empty", () => {         
         expect(areWeCovered([],"Monday")).toBe(false);
     });
 });
