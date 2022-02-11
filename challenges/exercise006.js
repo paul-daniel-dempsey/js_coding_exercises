@@ -16,17 +16,17 @@ const sumMultiples_working = arr => {
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str => (['C','G','T','A'].filter(char => str.toString().toUpperCase().split(" ").includes(char)).length > 0) ? true : false;
+const isValidDNA = str => (['C','G','T','A'].filter(char => str.toString().toUpperCase().split("").includes(char)).length > 0) ? true : false;
 const isValidDNA_working = str => {
   if (str === undefined) throw new Error("str is required");
   
   // v1
   // let dna = ['C','G','T','A'];
-  // let arystr = str.toString().toUpperCase().split(" ");
+  // let arystr = str.toString().toUpperCase().split("");
   // return (dna.filter(char => arystr.includes(char)).length > 0) ? true : false;
 
   // v2
-  // return (['C','G','T','A'].filter(char => str.toString().toUpperCase().split(" ").includes(char)).length > 0) ? true : false;
+  // return (['C','G','T','A'].filter(char => str.toString().toUpperCase().split("").includes(char)).length > 0) ? true : false;
 };
 
 
@@ -37,6 +37,10 @@ const isValidDNA_working = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+    // v1  C->G, G->C, T->A or A->T
+  let dnaMap = {'C':'G','G':'C' ,'T':'A','A':'T'};
+  return str.toString().toUpperCase().split("").map(char => { if (Object.keys(dnaMap).includes(char)) { return dnaMap[char] } else { return char;} }).join("");
 };
 
 /**

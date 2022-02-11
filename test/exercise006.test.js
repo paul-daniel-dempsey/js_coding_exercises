@@ -21,15 +21,31 @@ describe("sumMultiples", () => {
 
 describe("isValidDNA", () => {
     test("returns true when contain characters C, G, T or A", () => {         
-        expect(isValidDNA("C G T A")).toBe(true);
-        expect(isValidDNA("X Y Z A")).toBe(true);
-        expect(isValidDNA("C S R D")).toBe(true);
+        expect(isValidDNA("CGTA")).toBe(true);
+        expect(isValidDNA("cgta")).toBe(true);
+        expect(isValidDNA("XYZA")).toBe(true);
+        expect(isValidDNA("CSRD")).toBe(true);
     });
 
     test("returns false when missing C, G, T and A", () => {         
-        expect(isValidDNA("B X Y D")).toBe(false);
+        expect(isValidDNA("BXYD")).toBe(false);
     });
-    test("returns false when empty array", () => {         
+    test("returns false when empty string", () => {         
         expect(isValidDNA("")).toBe(false);
+    });
+});
+
+describe("getComplementaryDNA", () => {
+    test.only("return a string of the complementary base pairs C->G, G->C, T->A or A->T", () => {         
+        expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+        expect(getComplementaryDNA("SACTG")).toBe("STGAC");
+        expect(getComplementaryDNA("SACTGd")).toBe("STGACD");
+    });
+
+    test.only("returns empty string when missing C, G, T and A", () => {         
+        expect(getComplementaryDNA("BXYD")).toBe("BXYD");
+    });
+    test.only("returns empty string when empty string", () => {         
+        expect(getComplementaryDNA("")).toBe("");
     });
 });
