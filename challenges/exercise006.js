@@ -4,19 +4,31 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => {
+const sumMultiples = arr => arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhs_item) => lhs + rhs_item, 0);
+const sumMultiples_working = arr => {
   if (arr === undefined) throw new Error("arr is required");
   return arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhs_item) => lhs + rhs_item, 0);
 };
+
 
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str => {
+const isValidDNA = str => (['C','G','T','A'].filter(char => str.toString().toUpperCase().split(" ").includes(char)).length > 0) ? true : false;
+const isValidDNA_working = str => {
   if (str === undefined) throw new Error("str is required");
+  
+  // v1
+  // let dna = ['C','G','T','A'];
+  // let arystr = str.toString().toUpperCase().split(" ");
+  // return (dna.filter(char => arystr.includes(char)).length > 0) ? true : false;
+
+  // v2
+  // return (['C','G','T','A'].filter(char => str.toString().toUpperCase().split(" ").includes(char)).length > 0) ? true : false;
 };
+
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
