@@ -2,8 +2,10 @@
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
  * @param {Number} n
  */
-const sumDigits = n => {
+const sumDigits = n => (Math.abs(n)/2) * (1+Math.abs(n)) * Math.sign(n);
+const sumDigits_working = n => {
   if (n === undefined) throw new Error("n is required");
+  return (Math.abs(n)/2) * (1+Math.abs(n)) * Math.sign(n);
 };
 
 /**
