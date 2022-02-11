@@ -72,7 +72,13 @@ const arrShift_implicitreturn = arr => (arr.length > 0) ? [arr[arr.length-1]].co
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required"); // ? How do I add 'THROW NEW' to implicit return?
   if (searchTerm === undefined) throw new Error("searchTerm is required"); // ? How do I add 'THROW NEW' to implicit return?
-  // Your code here!
+ 
+  for (let key in haystack) {
+    if (haystack[key].toString().toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ) {
+      return true;
+    }
+  }
+  return false;
 };
 
 const getWordFrequencies = str => {

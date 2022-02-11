@@ -69,20 +69,20 @@ describe("sumArrays", () => {
 });
 
 describe("arrShift", () => {
-  test.only("returns an array with the first and last items swapped", () => {
+  test("returns an array with the first and last items swapped", () => {
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
     expect(arrShift([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
   });
 
-  test.only("makes no difference when the array length is < 2", () => {
+  test("makes no difference when the array length is < 2", () => {
     expect(arrShift([1])).toEqual([1]);
     expect(arrShift([])).toEqual([]);
   });
 });
 
 describe("findNeedle", () => {
-  test("returns true if any of the properties of an object contain the specified string", () => {
+  test.only("returns true if any of the properties of an object contain the specified string", () => {
     const obj1 = {
       name: "LINNMON",
       description: "Small round table",
@@ -103,7 +103,7 @@ describe("findNeedle", () => {
     expect(findNeedle(obj2, "Dishwasher")).toBe(true);
   });
 
-  test("returns false if none of the properties of an object contain the specified string", () => {
+  test.only("returns false if none of the properties of an object contain the specified string", () => {
     const obj1 = {
       name: "LINNMON",
       description: "Small round table",
@@ -124,7 +124,7 @@ describe("findNeedle", () => {
     expect(findNeedle(obj2, "Carpet Cleaner")).toBe(false);
   });
 
-  test("The search string should not be case sensitive", () => {
+  test.only("The search string should not be case sensitive", () => {
     const obj1 = {
       name: "LINNMON",
       description: "Small round table",
