@@ -17,6 +17,15 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+
+  // v1
+  // step = (step === undefined) ? 1 : step;
+  // let size = Math.floor(((end-start)/step) + 1);
+  // return Array(size).fill().map((num, idx) => num = start + (idx * step));
+
+    // v2 - COMEBACKTO CANT GET STEP INTO IFF ON LINE BELOW
+  step = (step === undefined) ? 1 : step;
+  return Array(Math.floor(((end-start)/step) + 1)).fill().map((num, idx) => num = start + (idx * step));
 };
 
 /**
