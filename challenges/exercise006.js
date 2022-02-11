@@ -108,6 +108,17 @@ const createMatrix_working = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+
+  // v1
+  let daycount = 0
+  staff.forEach(worker => {
+    worker.rota.forEach(dayrota => {
+      if (dayrota === day) { 
+        daycount += 1;
+      }
+    })
+  })
+  return daycount >= 3;
 };
 
 module.exports = {
