@@ -68,9 +68,29 @@ const isItPrime = n => {
  * @param {Any} fill
  * @returns {Array}
  */
-const createMatrix = (n, fill) => {
+const createMatrix = (n, fill) => Array(n).fill(Array(n).fill(fill));
+const createMatrix_working = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  // v1
+  // let matrix = [];
+  // let line = [];
+  // for(let j = 0; j < n; j++) {
+  //   line.push(fill)
+  // }
+  // for(let i = 0; i < n; i++) {
+  //   matrix.push(line)
+  // }
+  // return matrix;
+
+  // v2
+  // let line = Array(n).fill(fill);
+  // let matrix = Array(n).fill(line);
+  // return matrix;
+
+  // v3
+  return Array(n).fill(Array(n).fill(fill));
 };
 
 /**

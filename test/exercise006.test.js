@@ -51,7 +51,7 @@ describe("getComplementaryDNA", () => {
 });
 
 describe("isItPrime", () => {
-    test("receive a number and return true if is a prime number (can only be divided evenly by 1 and itself)f", () => {         
+    test("receive a number and return true if is a prime number (can only be divided evenly by 1 and itself)", () => {         
         expect(isItPrime(7)).toBe(true);
         expect(isItPrime(13)).toBe(true);
     });
@@ -62,5 +62,15 @@ describe("isItPrime", () => {
     });
     test("returns false string when zero", () => {         
         expect(isItPrime(0)).toBe(false);
+    });
+});
+
+describe("createMatrix", () => {
+    test.only("receive a number and return an array of n arrays, each filled with n items", () => {         
+        expect(createMatrix(3,"Foo")).toEqual([["Foo","Foo","Foo"],["Foo","Foo","Foo"],["Foo","Foo","Foo"]]);
+    });
+
+    test.only("receive zero and return an empty array", () => {         
+        expect(createMatrix(0,"foo")).toEqual([]);
     });
 });
