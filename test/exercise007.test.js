@@ -7,19 +7,19 @@ const {
 
 
     describe("sumDigits", () => {
-        test.only("sum all digits upto and including value", () => {         
+        test("sum all digits upto and including value", () => {         
             expect(sumDigits(3)).toEqual(6);
         });
-        test.only("sum all digits upto and including value", () => {         
+        test("sum all digits upto and including value", () => {         
             expect(sumDigits(4)).toEqual(10);
         });
-        test.only("sum all digits upto and including value", () => {         
+        test("sum all digits upto and including value", () => {         
             expect(sumDigits(5)).toEqual(15);
         });
-        test.only("sum zero to zero", () => {         
+        test("sum zero to zero", () => {         
             expect(sumDigits(0)).toEqual(0);
         });
-        test.only("sum negative downto and including value", () => {         
+        test("sum negative downto and including value", () => {         
             expect(sumDigits(-3)).toEqual(-6);
         });                 
     });
@@ -44,3 +44,19 @@ const {
             expect(createRange(3, 3)).toEqual([3]);
         });        
     });
+
+    describe("hexToRGB", () => {
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#FF0011")).toEqual([255,0,17]);
+        });
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#FFFFFF")).toEqual([255,255,255]);
+        });
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#000000")).toEqual([0,0,0]);
+        });
+        test("create empty RGB array", () => {         
+            expect(hexToRGB("")).toEqual([]);
+        });      
+    });
+
