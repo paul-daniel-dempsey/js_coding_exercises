@@ -36,16 +36,31 @@ describe("isValidDNA", () => {
 });
 
 describe("getComplementaryDNA", () => {
-    test.only("return a string of the complementary base pairs C->G, G->C, T->A or A->T", () => {         
+    test("return a string of the complementary base pairs C->G, G->C, T->A or A->T", () => {         
         expect(getComplementaryDNA("ACTG")).toBe("TGAC");
         expect(getComplementaryDNA("SACTG")).toBe("STGAC");
         expect(getComplementaryDNA("SACTGd")).toBe("STGACD");
     });
 
-    test.only("returns empty string when missing C, G, T and A", () => {         
+    test("returns empty string when missing C, G, T and A", () => {         
         expect(getComplementaryDNA("BXYD")).toBe("BXYD");
     });
-    test.only("returns empty string when empty string", () => {         
+    test("returns empty string when empty string", () => {         
         expect(getComplementaryDNA("")).toBe("");
+    });
+});
+
+describe("isItPrime", () => {
+    test("receive a number and return true if is a prime number (can only be divided evenly by 1 and itself)f", () => {         
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(13)).toBe(true);
+    });
+
+    test("receive a number and return false if not a prime number (can only be divided evenly by 1 and itself) ", () => {         
+        expect(isItPrime(1)).toBe(false);
+        expect(isItPrime(4)).toBe(false);
+    });
+    test("returns false string when zero", () => {         
+        expect(isItPrime(0)).toBe(false);
     });
 });

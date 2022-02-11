@@ -50,6 +50,11 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+
+  // v1, only loop to square of number to reduce loops, 0 & 1 are NOT prime numnbers
+  for(let i = 2; i <= Math.sqrt(n); i++) {
+      if(n % i === 0) return false; }
+  return n > 1;
 };
 
 /**
