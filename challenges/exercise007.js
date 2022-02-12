@@ -25,7 +25,7 @@ const createRange = (start, end, step) => {
   // let size = Math.floor(((end-start)/step) + 1);
   // return Array(size).fill().map((num, idx) => num = start + (idx * step));
 
-    // v2 - COMEBACKTO CANT GET STEP INTO IFF ON LINE BELOW
+    // v2 - COMEBACKTO CANT GET STEP INTO IF ON LINE BELOW
   step = (step === undefined) ? 1 : step;
   return Array(Math.floor(((end-start)/step) + 1)).fill().map((num, idx) => num = start + (idx * step));
 };
@@ -62,6 +62,43 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  // v1 - FOR
+  // let usernames = [];
+  // for(let i=0;i < users.length; i++) {
+  //   let totaltime = 0;
+  //   const screentime =  users[i].screenTime;
+  //   for(let j=0; j< screentime.length; j++) {
+  //     if ( screentime[j].date === date) {
+  //       for(let key in screentime[j].usage) {
+  //         totaltime += screentime[j].usage[key];
+  //       }
+  //       break;
+  //     }
+  //   }
+  //   if (totaltime > 100) {
+  //     usernames.push(users[i].username);
+  //   }
+  // }
+  // return usernames;
+
+    // v2 - FOREACH
+    let usernames = [];
+    users.forEach(user => {
+      let totaltime = 0;
+      const screentime =  user.screenTime;
+      screentime.forEach(day => {
+        if ( day.date === date) {
+          for(let key in day.usage) {
+            totaltime += day.usage[key];
+          }
+        }
+      });
+      if (totaltime > 100) {
+        usernames.push(user.username);
+      }
+    });
+    return usernames;
 };
 
 /**
