@@ -138,6 +138,48 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+
+  // Testing : Array Reversal, Rotate!
+  //let reverseboard = board.map(row=>row.reverse()).reverse();
+  //let rotateboard = board[0].map((val, index) => board.map(row => row[index]).reverse());
+
+  // v1
+  // const winnerHorz = findRowWinner(board); // Horizontal Winner
+  // const winnerVert = findRowWinner(board[0].map((_, index) => board.map(row => row[index]).reverse()));// Vertical Winner (ROTATE!)
+  // const winnerDiag = findDiagonalWinner(board); // Diagnol Winner
+  // return (winnerHorz || winnerVert || winnerDiag);
+
+  // v2 : Faster (Drops out)
+  let winner = findRowWinner(board); 
+  if (winner === null) {
+    winner = findRowWinner(board[0].map((_, index) => board.map(row => row[index]).reverse()));// Vertical Winner (ROTATE!)
+    if  (winner === null) {
+      winner = findDiagonalWinner(board);
+    }
+  }
+  return winner;
+};
+
+const findRowWinner = board => {
+  let found = null;
+  board.forEach(row => { 
+    const lineacross = row.join("").toUpperCase();
+    if (lineacross === "XXX" || lineacross === "000" ) {
+      found = lineacross.substring(0,1).toString("");}
+  });
+  return found;
+};
+
+const findDiagonalWinner = board => {
+    let found = null;
+    for(let i=0;i<=2; i += 2) {
+      if (board[0][i] !== null && board[1][1] !== null && board[2][i] !== null) {
+        let diag = (board[0][i]+board[1][1]+board[2][i]).toString("").toUpperCase();
+      if (diag === "XXX" || diag === "000") {
+        found =  diag.substring(0,1).toString(""); }
+      }
+    }
+    return found;
 };
 
 module.exports = {
