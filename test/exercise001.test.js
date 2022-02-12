@@ -136,7 +136,7 @@ describe("getMeanScore", () => {
 });
 
 describe("simpleFizzBuzz", () => {
-  test.only("returns 'fizz' if the number is divisible by 3", () => {
+  test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });
 
