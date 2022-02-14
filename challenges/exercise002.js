@@ -17,37 +17,16 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-
-  // SetUp Empty
-  const toFind = "sheep"
-  let group = [];
-  group[toFind] = 0;
-
-  // Count instances of all
-  for(let i=0;i<arr.length;i++) {
-    group[arr[i]] = group[arr[i]] ? group[arr[i]] + 1 : 1; 
-  }
-  return group[toFind];
+  return arr.filter(animals => animals === 'sheep').length;
 }
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
   
-  const cityfind = "Manchester";
-  const postcodestart = "M";
-  
-  // First Attempt
-  // if (person.address.postCode.substring(0,postcodestart.length).toUpperCase() === postcodestart) {
-  //   if (person.address.city === cityfind) {
-  //     return true;
-  //   }
-  // }
-  // return false;
-  
-  // RollUp
-  return ((person.address.postCode.substring(0,postcodestart.length).toUpperCase() === postcodestart) 
-          && (person.address.city === cityfind));
+  // v2 - First Letter M, Second Letter Numeric, City Manchester
+  return ((person.address.postCode.substring(0,1).toUpperCase() === "M") && (/^\d+$/.test(person.address.postCode.substring(1,2))) && (person.address.city === "Manchester"));
 }
+
 
 module.exports = {
   getFillings,
