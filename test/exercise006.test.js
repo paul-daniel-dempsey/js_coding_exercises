@@ -75,34 +75,12 @@ describe("createMatrix", () => {
     });
 });
 
-
-
 describe("areWeCovered", () => {
     test("return true when there > 3 staff for days", () => {         
         expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
                              { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
                              { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
                              { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Monday")).toBe(true);
-        // expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Tuesday")).toBe(true);
-        // expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Wednesday")).toBe(true);
-        // expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Thursday")).toBe(true);
-        // expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Friday")).toBe(true);
-        // expect(areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "John", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] },
-        //                      { name: "Ian", rota: ["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"] }],"Saturday")).toBe(true);
     });
 
     test("return false when there < 3 staff for days", () => {         

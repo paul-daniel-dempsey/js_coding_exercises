@@ -5,11 +5,6 @@
  * @returns {Number}
  */
 const sumMultiples = arr => arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhs_item) => lhs + rhs_item, 0);
-const sumMultiples_working = arr => {
-  if (arr === undefined) throw new Error("arr is required");
-  return arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhs_item) => lhs + rhs_item, 0);
-};
-
 
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
@@ -17,46 +12,20 @@ const sumMultiples_working = arr => {
  * @returns {Boolean}
  */
 const isValidDNA = str => (['C','G','T','A'].filter(char => str.toString().toUpperCase().split("").includes(char)).length > 0) ? true : false;
-const isValidDNA_working = str => {
-  if (str === undefined) throw new Error("str is required");
-  
-  // v1
-  // let dna = ['C','G','T','A'];
-  // let arystr = str.toString().toUpperCase().split("");
-  // return (dna.filter(char => arystr.includes(char)).length > 0) ? true : false;
-
-  // v2
-  // return (['C','G','T','A'].filter(char => str.toString().toUpperCase().split("").includes(char)).length > 0) ? true : false;
-};
-
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
-const getComplementaryDNA = str => {
-  if (str === undefined) throw new Error("str is required");
-
-    // v1  C->G, G->C, T->A or A->T
-  let dnaMap = {'C':'G','G':'C' ,'T':'A','A':'T'};
-  return str.toString().toUpperCase().split("").map(char => { if (Object.keys(dnaMap).includes(char)) { return dnaMap[char] } else { return char;} }).join("");
-};
+const getComplementaryDNA = str => str.toString().toUpperCase().split("").map(char => { if (Object.keys({'C':'G','G':'C' ,'T':'A','A':'T'}).includes(char)) { return {'C':'G','G':'C' ,'T':'A','A':'T'}[char] } else { return char;} }).join("");
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
  * @param {Number} n
  * @returns {Boolean}
  */
-const isItPrime = n => {
-  if (n === undefined) throw new Error("n is required");
-
-  // v1, only loop to square of number to reduce loops, 0 & 1 are NOT prime numnbers
-  for(let i = 2; i <= Math.sqrt(n); i++) {
-      if(n % i === 0) return false; }
-  return n > 1;
-};
-
+const isItPrime = n => (n < 2 ? false : [...Array(n-2)].map((_,i)=>i+2).filter(i=>n%i==0).length==0);
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
  * [
@@ -69,29 +38,6 @@ const isItPrime = n => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => Array(n).fill(Array(n).fill(fill));
-const createMatrix_working = (n, fill) => {
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
-
-  // v1
-  // let matrix = [];
-  // let line = [];
-  // for(let j = 0; j < n; j++) {
-  //   line.push(fill)
-  // }
-  // for(let i = 0; i < n; i++) {
-  //   matrix.push(line)
-  // }
-  // return matrix;
-
-  // v2
-  // let line = Array(n).fill(fill);
-  // let matrix = Array(n).fill(line);
-  // return matrix;
-
-  // v3
-  return Array(n).fill(Array(n).fill(fill));
-};
 
 /**
  * This function takes an array of staff objects in the format:
@@ -105,21 +51,7 @@ const createMatrix_working = (n, fill) => {
  * @param {String} day
  * @returns {Boolean}
  */
-const areWeCovered = (staff, day) => {
-  if (staff === undefined) throw new Error("staff is required");
-  if (day === undefined) throw new Error("day is required");
-
-  // v1
-  let daycount = 0
-  staff.forEach(worker => {
-    worker.rota.forEach(dayrota => {
-      if (dayrota === day) { 
-        daycount += 1;
-      }
-    })
-  })
-  return daycount >= 3;
-};
+const areWeCovered = (staff, day) => staff.reduce((counter, worker) => worker.rota.includes(day) ? counter += 1: counter,0) >= 3;
 
 module.exports = {
   sumMultiples,
