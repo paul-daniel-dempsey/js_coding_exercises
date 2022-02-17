@@ -45,6 +45,21 @@ const {
         });        
     });
 
+    describe("hexToRGB", () => {
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#FF0011")).toEqual([255,0,17]);
+        });
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#FFFFFF")).toEqual([255,255,255]);
+        });
+        test("create RGB array from hex string", () => {         
+            expect(hexToRGB("#000000")).toEqual([0,0,0]);
+        });
+        test("create empty RGB array", () => {         
+            expect(hexToRGB("")).toEqual([]);
+        });      
+    });
+
     describe("getScreentimeAlertList", () => {
 
         let users =  [
@@ -87,21 +102,6 @@ const {
         test("retreive for given date 0 usernames >100mins (Any Apps) from array of user objects and their usage in minutes", () => {         
             expect(getScreentimeAlertList(users,"2019-06-11")).toEqual([]); 
         });
-    });
-
-    describe("hexToRGB", () => {
-        test("create RGB array from hex string", () => {         
-            expect(hexToRGB("#FF0011")).toEqual([255,0,17]);
-        });
-        test("create RGB array from hex string", () => {         
-            expect(hexToRGB("#FFFFFF")).toEqual([255,255,255]);
-        });
-        test("create RGB array from hex string", () => {         
-            expect(hexToRGB("#000000")).toEqual([0,0,0]);
-        });
-        test("create empty RGB array", () => {         
-            expect(hexToRGB("")).toEqual([]);
-        });      
     });
 
     describe("findWinner", () => {

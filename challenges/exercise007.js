@@ -3,10 +3,6 @@
  * @param {Number} n
  */
 const sumDigits = n => (Math.abs(n)/2) * (1+Math.abs(n)) * Math.sign(n);
-const sumDigits_working = n => {
-  if (n === undefined) throw new Error("n is required");
-  return (Math.abs(n)/2) * (1+Math.abs(n)) * Math.sign(n);
-};
 
 /**
  * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
@@ -16,19 +12,21 @@ const sumDigits_working = n => {
  * @param {Number} end
  * @param {Number} step
  */
-const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
+const createRange = (start, end, step = 1) => Array(Math.floor(((end-start)/step) + 1)).fill().map((num, idx) => num = start + (idx * step));
 
-  // v1
-  // step = (step === undefined) ? 1 : step;
-  // let size = Math.floor(((end-start)/step) + 1);
-  // return Array(size).fill().map((num, idx) => num = start + (idx * step));
-
-    // v2 - COMEBACKTO CANT GET STEP INTO IF ON LINE BELOW
-  step = (step === undefined) ? 1 : step;
-  return Array(Math.floor(((end-start)/step) + 1)).fill().map((num, idx) => num = start + (idx * step));
-};
+/**
+ * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. 
+ * If you want to know more about hexadecimal notation:
+ * https://www.youtube.com/watch?v=u_atXp-NF6w
+ * For colour codes, the first 2 chars (FF in this case) represent the amount of red, 
+ * the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
+ * Colours can also be represented in RGB format, using decimal notation.
+ * This function should transform the hex code into an RGB code in the format:
+ * "rgb(255,17,51)"
+ * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
+ * @param {String} str
+ */
+ const hexToRGB = hexStr => hexStr === "" ? [] : hexStr.replace(/[^a-zA-Z0-9 ]/g, '').match(/.{1,2}/g).map(hex => parseInt(hex,16));
 
 /**
  * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
@@ -99,31 +97,6 @@ const getScreentimeAlertList = (users, date) => {
       }
     });
     return usernames;
-};
-
-/**
- * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. 
- * If you want to know more about hexadecimal notation:
- * https://www.youtube.com/watch?v=u_atXp-NF6w
- * For colour codes, the first 2 chars (FF in this case) represent the amount of red, 
- * the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
- * Colours can also be represented in RGB format, using decimal notation.
- * This function should transform the hex code into an RGB code in the format:
- * "rgb(255,17,51)"
- * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
- * @param {String} str
- */
-const hexToRGB = hexStr => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
-
-  // v1 - Conversion Testing
-  // let hex = Number("FF").toString(16);
-  // let dec = parseInt(hex,16);
-  let rgb = [];
-  let hex = hexStr.replace(/[^a-zA-Z0-9 ]/g, '');
-  for (let i = 0; i < hex.length; i += 2) {
-    rgb.push(parseInt(hex.slice(i, i + 2),16)); }
-  return rgb;
 };
 
 /**
