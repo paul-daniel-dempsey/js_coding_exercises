@@ -61,42 +61,23 @@ const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 
-  // v1 - FOR
-  // let usernames = [];
-  // for(let i=0;i < users.length; i++) {
-  //   let totaltime = 0;
-  //   const screentime =  users[i].screenTime;
-  //   for(let j=0; j< screentime.length; j++) {
-  //     if ( screentime[j].date === date) {
-  //       for(let key in screentime[j].usage) {
-  //         totaltime += screentime[j].usage[key];
-  //       }
-  //       break;
-  //     }
-  //   }
-  //   if (totaltime > 100) {
-  //     usernames.push(users[i].username);
-  //   }
-  // }
-  // return usernames;
-
-    // v2 - FOREACH
-    let usernames = [];
-    users.forEach(user => {
-      let totaltime = 0;
-      const screentime =  user.screenTime;
-      screentime.forEach(day => {
-        if ( day.date === date) {
-          for(let key in day.usage) {
-            totaltime += day.usage[key];
-          }
+  // ForEach into user objects Screentime if >100mins store username
+  let usernames = [];
+  users.forEach(user => {
+    let totaltime = 0;
+    const screentime =  user.screenTime;
+    screentime.forEach(day => {
+      if ( day.date === date) {
+        for(let key in day.usage) {
+          totaltime += day.usage[key];
         }
-      });
-      if (totaltime > 100) {
-        usernames.push(user.username);
       }
     });
-    return usernames;
+    if (totaltime > 100) {
+      usernames.push(user.username);
+    }
+  });
+  return usernames;
 };
 
 /**
@@ -112,17 +93,7 @@ const getScreentimeAlertList = (users, date) => {
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
 
-  // Testing : Array Reversal, Rotate!
-  //let reverseboard = board.map(row=>row.reverse()).reverse();
-  //let rotateboard = board[0].map((val, index) => board.map(row => row[index]).reverse());
-
-  // v1
-  // const winnerHorz = findRowWinner(board); // Horizontal Winner
-  // const winnerVert = findRowWinner(board[0].map((_, index) => board.map(row => row[index]).reverse()));// Vertical Winner (ROTATE!)
-  // const winnerDiag = findDiagonalWinner(board); // Diagnol Winner
-  // return (winnerHorz || winnerVert || winnerDiag);
-
-  // v2 : Faster (Drops out)
+  // Find horizontal, vertical (90degree rotate) and diagonal winners, drop out early as possible
   let winner = findRowWinner(board); 
   if (winner === null) {
     winner = findRowWinner(board[0].map((_, index) => board.map(row => row[index]).reverse()));// Vertical Winner (ROTATE!)
