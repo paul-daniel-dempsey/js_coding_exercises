@@ -5,14 +5,14 @@ function getFillings(sandwich) {
 
 function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
-  const cityfind = "Manchester";
-  return (person.city === cityfind);
+  const CITY_FIND = "Manchester";
+  return (person.city === CITY_FIND);
 }
 
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
-  const buscapacity = 40;
-  return Math.ceil( people / buscapacity );
+  const BUS_CAPACITY = 40;
+  return Math.ceil( people / BUS_CAPACITY );
 }
 
 function countSheep(arr) {

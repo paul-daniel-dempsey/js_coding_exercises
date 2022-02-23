@@ -62,22 +62,22 @@ const getScreentimeAlertList = (users, date) => {
   if (date === undefined) throw new Error("date is required");
 
   // ForEach into user objects Screentime if >100mins store username
-  let usernames = [];
+  let userNames = [];
   users.forEach(user => {
-    let totaltime = 0;
-    const screentime =  user.screenTime;
-    screentime.forEach(day => {
+    let totalTime = 0;
+    const screenTime =  user.screenTime;
+    screenTime.forEach(day => {
       if ( day.date === date) {
         for(let key in day.usage) {
-          totaltime += day.usage[key];
+          totalTime += day.usage[key];
         }
       }
     });
-    if (totaltime > 100) {
-      usernames.push(user.username);
+    if (totalTime > 100) {
+      userNames.push(user.username);
     }
   });
-  return usernames;
+  return userNames;
 };
 
 /**
@@ -107,9 +107,9 @@ const findWinner = board => {
 const findRowWinner = board => {
   let found = null;
   board.forEach(row => { 
-    const lineacross = row.join("").toUpperCase();
-    if (lineacross === "XXX" || lineacross === "000" ) {
-      found = lineacross.substring(0,1).toString("");}
+    const across = row.join("").toUpperCase();
+    if (across === "XXX" || across === "000" ) {
+      found = across.substring(0,1).toString("");}
   });
   return found;
 };

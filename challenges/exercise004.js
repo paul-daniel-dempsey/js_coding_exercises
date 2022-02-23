@@ -21,12 +21,17 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  return users.map(user => { return user.data.city.displayName});
+  return users.map(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  return nums.map(num => { return Math.round((Math.sqrt(num)) * Math.pow(10,2)) / Math.pow(10,2)});
+
+  // v1 - string conversion (slow, simple) 
+  return nums.map(num =>  parseFloat(Math.sqrt(num).toFixed(2)));
+
+  // v2 -  round calculation (fast, complex)
+  // return nums.map(num =>  Math.round((Math.sqrt(num)) * Math.pow(10,2)) / Math.pow(10,2));
 }
 
 function findSentencesContaining(sentences, str) {

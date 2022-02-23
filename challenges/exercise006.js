@@ -4,7 +4,7 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhs_item) => lhs + rhs_item, 0);
+const sumMultiples = arr => arr.filter(num => num % 3 === 0 || num % 5 === 0).reduce((lhs, rhsItem) => lhs + rhsItem, 0);
 
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.

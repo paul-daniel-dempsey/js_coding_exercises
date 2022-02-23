@@ -5,7 +5,7 @@ function camelCaseWords(words) {
 
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  return nums.map(num => num = (num * num));
+  return nums.map(n => n * n);
 }
 
 function getTotalSubjects(people) {
@@ -13,18 +13,18 @@ function getTotalSubjects(people) {
   return people.filter(person => person.subjects.length > 0).reduce((counter, obj) => counter += obj.subjects.length,0);
 }
 
-function checkIngredients(menu, ingredientfind) {
+function checkIngredients(menu, ingredientFind) {
   if (menu === undefined) throw new Error("menu is required");
-  if (!ingredientfind) throw new Error("ingredient is required");
-  return menu.filter(dish => dish.ingredients.indexOf(ingredientfind) >= 0).length > 0;
+  if (!ingredientFind) throw new Error("ingredient is required");
+  return menu.filter(dish => dish.ingredients.indexOf(ingredientFind) >= 0).length > 0;
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  let arr1unique = arr1.filter((v, i, a) => a.indexOf(v) === i);
-  let arr2unique = arr2.filter((v, i, a) => a.indexOf(v) === i);
-  return arr1unique.filter(num => arr2unique.includes(num)).sort((a,b) => a - b);
+  let arr1Unique = arr1.filter((v, i, a) => a.indexOf(v) === i);
+  let arr2Unique = arr2.filter((v, i, a) => a.indexOf(v) === i);
+  return arr1Unique.filter(num => arr2Unique.includes(num)).sort((a,b) => a - b);
 }
 
 module.exports = {
