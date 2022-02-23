@@ -11,15 +11,19 @@ const sumMultiples = arr => arr.filter(num => num % 3 === 0 || num % 5 === 0).re
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str => (['C','G','T','A'].filter(char => str.toString().toUpperCase().split("").includes(char)).length > 0) ? true : false;
+const isValidDNA = str => str.toUpperCase().split("").some(char => ['C','G','T','A'].includes(char));
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
-const getComplementaryDNA = str => str.toString().toUpperCase().split("").map(char => { if (Object.keys({'C':'G','G':'C' ,'T':'A','A':'T'}).includes(char)) { return {'C':'G','G':'C' ,'T':'A','A':'T'}[char] } else { return char;} }).join("");
-
+const getComplementaryDNA = str => str.toUpperCase().split("").map(char => { 
+        if (Object.keys({'C':'G','G':'C' ,'T':'A','A':'T'}).includes(char)) { 
+          return {'C':'G','G':'C' ,'T':'A','A':'T'}[char] } 
+        else { 
+          return char;}
+      }).join("");
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
  * @param {Number} n
